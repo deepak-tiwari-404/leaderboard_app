@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8"/>
-		<title>Learn AngularJS - MyGame</title>
+		<title>Leader Board</title>
 
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
@@ -23,11 +23,11 @@
 		  <div class="has-header">
 		    <!-- angular templating -->
 				<!-- this is where content will be injected -->
-				<h2 class="text-center page-title" ng-show="title">{{title}}</h2>
-				<p class="text-center red" ng-show="error">{{error}}</p>
+				<h2 class="text-center page-title" ng-if="title">{{title}}</h2>
+				<p class="text-center red" ng-if="error">{{error}}</p>
 				<div ui-view></div>
 		  </div>
-	    <div><ng-include src="'layouts/footer.html'"></div>
+	    <!--div><ng-include src="'layouts/footer.html'"></div-->
 	  </div>
 		<!-- Include AngularJS from Google's CDN and the resource module -->
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
@@ -38,6 +38,7 @@
 		<script src="js/service/db_storage.js"></script>
 		<script src="js/service/auth_service.js"></script>
 		<script src="js/service/question_service.js"></script>
+		<script src="js/service/user_service.js"></script>
 		<script src="js/controller/application_controller.js"></script>
 		<script src="js/controller/questions_controller.js"></script>
 		<script src="js/controller/users_controller.js"></script>

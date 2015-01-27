@@ -1,0 +1,34 @@
+<section id="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-wrap">
+                    <form id="login-form" ng-submit="done()">
+                        <div class="form-group">
+                            <span>Number of top users(N)</span>
+                            <span>
+                              <label for="setting_n" class="sr-only"></label>
+                              <input type="number" ng-model="setting.n" id="setting_n" class="form-control" ng-required="true" value="setting.n" min="{{settingRange.min}}" max="{{settingRange.max}}">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span>Number of top users(N1) just above me</span>
+                            <span>
+                              <label for="setting_n1" class="sr-only"></label>
+                              <input type="number" ng-model="setting.n1" id="setting_n1" class="form-control" ng-required="true" value="setting.n1" min="{{settingRange.min}}" max="{{settingRange.max}}">
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <span>Number of top users(N2) just below me</span>
+                            <span>
+                              <label for="setting_n2" class="sr-only"></label>
+                              <input type="number" ng-model="setting.n2" id="setting_n2" class="form-control" ng-required="true" value="setting.n2" min="{{settingRange.min}}" max="{{settingRange.max}}">
+                            </span>
+                        </div>
+                        <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Save">
+                    </form>
+                </div>
+            </div> <!-- /.col-xs-12 -->
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+</section>

@@ -1,7 +1,48 @@
 <div class="container">
-  <ul class="questions">
-    <li class="thumbnail phone-listing">
-      <a ui-sref="question_path({id: question.id})">{{question.text}}</a></p>
-    </li>
-  </ul>
+	<div class="row">
+	  <div class="col-md-3">
+	  	<div class="well">
+	      <a ui-sref="question_path({id: question.id})">{{question.text}}</a>
+	      <p>My Score: {{myScore}}</p>
+	      <div ng-if="!editEnabled"><a href="javascript:void(0);" ng-click="addScore()"><i class="fa fa-plus"></i> Add Score</a></div>
+	      <div ng-if="editEnabled">
+		      <form class="form-inline has-above" role="form" ng-submit="updateScore()">
+		      	<div class="form-group">
+		      		Your score:
+		      	  <label class="control-label" for="score" class="sr-only"></label>
+		        </div>
+		        <div class="form-group">
+		          <input type="number" ng-model="questionScore.score" id="score" class="form-control" ng-required="true" min="{{scoreRange.min}}" max="{{scoreRange.max}}">
+		        </div>
+		        <div class="form-group row has-above has-before-1">
+		        	<input type="submit" class="btn btn-custom col-md-6" value="Save">
+		        	<input type="cancel" class="btn btn-default col-md-6" ng-click="hideForm()" value="cancel">
+		        </div>
+		      </form>
+		    </div>
+		  </div>
+	  </div>
+    <div class="col-md-9">
+    	<div class="row">
+	      <ul class="questions col-md-6">
+	      	<h4 class="well">Top {{userSetting.n}} Users</h4>
+			    <li ng-repeat="data in topNUsers"
+			        class="thumbnail phone-listing">
+			        <p>{{data.user.name}}</p>
+			        <p>{{data.score}}</p>
+			      </a>
+			    </li>
+			  </ul>
+			  <ul class="questions col-md-6">
+			  	<h4 class="well">With top {{userSetting.n1}}(above) and {{userSetting.n2}}(below) Users</h4>
+			    <li ng-repeat="data in topN1N2Users"
+			        class="thumbnail phone-listing">
+			        <p>{{data.user.name}}</p>
+			        <p>{{data.score}}</p>
+			      </a>
+			    </li>
+			  </ul>
+			</div> 
+    </div>
+	</div>
 </div>

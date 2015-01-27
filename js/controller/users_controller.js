@@ -1,14 +1,18 @@
 'use strict';
 
-GameApp.controller('UserCtrl', ['$scope',
-  function($scope) {
-    $scope.user = {
-    	email: "",
-    	password: ""
-    };
+GameApp.controller('EditUserCtrl', ['$scope', '$state', 'userService',
+  function($scope, $state, userService) {
+  	$scope.setting = userService.getSetting($scope.currentUser().email);
 
-    $scope.login = function(){
-
+    $scope.done = function(){
+      userService.saveSetting($scope.currentUser().email, $scope.setting)
+      $state.go("summary_path");
     }
+  }
+]);
+
+GameApp.controller('UserIndexCtrl', ['$scope', '$state', 'userService',
+  function($scope, $state, userService) {
+    $scope.users = userService.listUsers();
   }
 ]);

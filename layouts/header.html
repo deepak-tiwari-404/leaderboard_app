@@ -1,12 +1,14 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-  	<a class="navbar-brand" ui-sref="question_path">Leader Board</a>
+  	<!--a class="navbar-brand" href="javascript:void(0);" ng-if="isLoggedIn">Welcome</a-->
     <nav>
-      <ul class="nav navbar-nav pull-right" ng-if="currentUser()">
-        <li><a ui-sref="summary_path">Home</a> </li>
+      <ul class="nav navbar-nav pull-right" ng-if="isLoggedIn">
+        <li><a ui-sref="summary_path">Summary</a> </li>
+        <li><a ui-sref="users_path">Users</a> </li>
+        <li><a ui-sref="setting_path">Setting</a> </li>
         <li><a href="javascript:void(0);" ng-click="logout()">Logout</a> </li>
       </ul>
-      <ul class="nav navbar-nav pull-right" ng-if="!currentUser()">
+      <ul class="nav navbar-nav pull-right" ng-if="!isLoggedIn">
         <li><a ui-sref="login_path">Login</a> </li>
         <li><a ui-sref="signup_path"> Register?</a> </li>
       </ul>

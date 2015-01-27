@@ -1,7 +1,7 @@
 <div class="container">
-  <ul class="questions">
+  <ul class="listing">
     <li ng-repeat="question in questions"
-        class="thumbnail phone-listing">
+        class="thumbnail">
       <a ui-sref="question_path({id: question.id})">
         <p>{{question.text}}</p>
       </a>

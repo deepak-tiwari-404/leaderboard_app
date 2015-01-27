@@ -106,7 +106,7 @@
    color: #1fa67b;
 }
 
-.questions {
+.listing {
   list-style: none;
 }
 
@@ -118,7 +118,7 @@
   width: 100px;
 }
 
-.questions li {
+.listing li {
   clear: both;
   padding-top: 15px;
 }
@@ -126,3 +126,22 @@
 .red{
     color: red;
 }
+
+.has-above{
+  padding-top: 10px;
+}
+
+.has-before{
+  padding-left: 10px;
+}
+
+
+.has-before-1{
+  padding-left: 15px;
+}
+
+
+.has-before-2{
+  padding-left: 20px;
+}
+

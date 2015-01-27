@@ -1,17 +1,11 @@
 'use strict';
 
-GameApp.controller('ApplicationCtrl', ['$scope', '$rootScope', '$state', 'dbStore', 'authService',
-  function($scope, $rootScope, $state, dbStore, authService) {
+GameApp.controller('ApplicationCtrl', ['$scope', '$rootScope', '$state', 'dbStore', 'authService', 'AppConstants',
+  function($scope, $rootScope, $state, dbStore, authService, AppConstants) {
     $scope.initialize = function(){
-      if(!dbStore.get('Users')){
-        dbStore.set('Users', {});
-      }
-      if(!dbStore.get('Scores')){
-        dbStore.set('Scores', {});
-      }
-      if(!dbStore.get('Questions')){
-        dbStore.set('Questions', {});
-      }
+      dbStore.setDb();
+      $scope.scoreRange = AppConstants.scoreRange;
+      $scope.settingRange = AppConstants.settingRange;
     }
 
     $scope.showError = function(error){

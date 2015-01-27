@@ -31,6 +31,22 @@ GameApp.config(["$stateProvider", "$urlRouterProvider", function($stateProvider,
       loginRequired: false,
       title: "Register Now"
     })
+
+    .state('setting_path', {
+      url: "/settings",
+      templateUrl: "layouts/setting.html",
+      controller: 'EditUserCtrl',
+      loginRequired: true,
+      title: "Edit Leader Board Settings"
+    })
+
+    .state('users_path', {
+      url: "/users",
+      templateUrl: "layouts/users.html",
+      controller: 'UserIndexCtrl',
+      loginRequired: true,
+      title: "All Users"
+    })
       // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 

@@ -1,5 +1,5 @@
-GameApp.service('dbStore', ['$window',
-  function ($window) {
+GameApp.service('dbStore', ['$window', 'AppConstants',
+  function ($window, AppConstants) {
     return {
       privateStorage: {},
       set: function(key, value) {
@@ -63,6 +63,21 @@ GameApp.service('dbStore', ['$window',
           return false;
         }
         return true;
+      },
+
+      setDb: function(){
+        if(!this.get('Users')){
+          this.set('Users', AppConstants.users);
+        }
+        if(!this.get('Scores')){
+          this.set('Scores', AppConstants.scores);
+        }
+        if(!this.get('Questions')){
+          this.set('Questions', AppConstants.questions);
+        }
+        if(!this.get('Settings')){
+          this.set('Settings', {});
+        }
       }
     }
 }]);

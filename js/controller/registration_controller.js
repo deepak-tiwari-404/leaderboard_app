@@ -1,7 +1,7 @@
 'use strict';
 
-GameApp.controller('RegistrationCtrl', ['$scope', '$state', "dbStore",
-  function($scope, $state, dbStore) {
+GameApp.controller('RegistrationCtrl', ['$scope', '$state', "userService",
+  function($scope, $state, userService) {
     $scope.user = {
     	name:"",
     	email: "",
@@ -9,14 +9,13 @@ GameApp.controller('RegistrationCtrl', ['$scope', '$state', "dbStore",
     };
 
     $scope.signup = function(){
-      var allUsers = dbStore.get("Users");
+      var allUsers = userService.listUsers();
       var user = allUsers[$scope.user.email];
       if(user){
       	$scope.showError("Email already exists.");
       	return;
       }
-      allUsers[$scope.user.email] = $scope.user;
-      dbStore.set("Users", allUsers);
+      userService.createUser($scope.user);
       $state.go("login_path");
     };
   }
