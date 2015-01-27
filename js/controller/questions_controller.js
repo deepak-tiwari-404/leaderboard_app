@@ -2,19 +2,19 @@
 
 GameApp.controller('QuestionCtrl', ['$scope', '$state', 'questionService', 'userService',
   function($scope, $state, questionService, userService) {
-  	initialize();
+    initialize();
 
     $scope.updateScore = function(){
-    	$scope.questionScore.userId = $scope.currentUser().email;
-    	$scope.questionScore.questionId = $scope.question.id;
+      $scope.questionScore.userId = $scope.currentUser().email;
+      $scope.questionScore.questionId = $scope.question.id;
       questionService.addScore($scope.questionScore);
       $scope.hideForm();
       $state.go("question_path",{id: $scope.question.id}, {reload: true});
     }
 
     $scope.addScore = function(){
-    	$scope.editEnabled = true;
-    	$scope.questionScore = {
+      $scope.editEnabled = true;
+      $scope.questionScore = {
         score: $scope.scoreRange.min
       };
     }

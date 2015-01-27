@@ -9,19 +9,19 @@ GameApp.controller('ApplicationCtrl', ['$scope', '$rootScope', '$state', 'dbStor
     }
 
     $scope.showError = function(error){
-    	$rootScope.error = error;
+      $rootScope.error = error;
     }
 
     $scope.currentUser = function(){
-    	return authService.currentUser();
+      return authService.currentUser();
     }
 
     $scope.loggedIn = function(){
-    	return authService.loggedIn();
+      return authService.loggedIn();
     }
 
     $scope.logout = function(){
-    	authService.logout();
-    	$state.go("login_path");
+      authService.logout();
+      $state.go("login_path");
     }
   }]);

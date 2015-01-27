@@ -60,7 +60,7 @@ GameApp.run(["$rootScope", "$state", "authService", function ($rootScope, $state
     $rootScope.isLoggedIn = authService.loggedIn();
     $rootScope.title = toState.title;
     if(toState.loginRequired && !$rootScope.isLoggedIn){
-    	event.preventDefault();
+      event.preventDefault();
       $state.go("login_path");
     }
   });

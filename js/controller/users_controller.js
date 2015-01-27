@@ -2,7 +2,7 @@
 
 GameApp.controller('EditUserCtrl', ['$scope', '$state', 'userService',
   function($scope, $state, userService) {
-  	$scope.setting = userService.getSetting($scope.currentUser().email);
+    $scope.setting = userService.getSetting($scope.currentUser().email);
 
     $scope.done = function(){
       userService.saveSetting($scope.currentUser().email, $scope.setting)

@@ -8,12 +8,12 @@ GameApp.controller('LoginCtrl', ['$scope', '$state', 'dbStore',
       var allUsers = dbStore.get("Users");
       var user = allUsers[$scope.user.email];
       if(user === undefined){
-      	$scope.showError("Email doesn't exist. Please register then try login");
-      	return;
+        $scope.showError("Email doesn't exist. Please register then try login");
+        return;
       }
       if(user.password != $scope.user.password){
-      	$scope.showError("Incorrect password");
-      	return;
+        $scope.showError("Incorrect password");
+        return;
       }
       dbStore.set("CurrentUser", $scope.user);
       $state.go("summary_path");
@@ -21,13 +21,13 @@ GameApp.controller('LoginCtrl', ['$scope', '$state', 'dbStore',
 
     function initialize(){
       if($scope.loggedIn()){
-      	$state.go("summary_path");
-      	return;
+        $state.go("summary_path");
+        return;
       }
       $scope.user = {
-	    	email: "",
-	    	password: ""
-	    };
+        email: "",
+        password: ""
+      };
     }
   }
 ]);
